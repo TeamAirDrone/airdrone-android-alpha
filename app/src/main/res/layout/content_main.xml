@@ -14,21 +14,20 @@
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:onClick="mkf_marker"
-        android:layout_above="@+id/lnglatText"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_toRightOf="@+id/button_maps"
+        android:layout_toEndOf="@+id/button_maps"
+        android:layout_above="@+id/loc_txt"
+        android:layout_alignTop="@+id/txt_lat" />
 
     <Button android:id="@+id/button_maps"
-        android:text="My location"
+        android:text="Get my Location"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_below="@+id/lnglatText"
+        android:layout_toRightOf="@+id/loc_txt"
+        android:layout_toEndOf="@+id/loc_txt" />
 
     <EditText
         android:layout_width="match_parent"
@@ -37,9 +36,10 @@
         android:ems="10"
         android:id="@+id/txt_lat"
         android:hint="Latitude"
-        android:layout_below="@+id/textView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_below="@+id/marker_txt"
+        android:layout_toStartOf="@+id/button_send"
+        android:layout_alignRight="@+id/button_maps"
+        android:layout_alignEnd="@+id/button_maps" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -51,8 +51,8 @@
         android:layout_below="@+id/txt_lat"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_toStartOf="@+id/button_send"
+        android:layout_toLeftOf="@+id/button_send" />
 
     <Button
         android:layout_width="wrap_content"
@@ -61,35 +61,47 @@
         android:id="@+id/btn_dtls"
         android:onClick="goDetails"
         android:layout_below="@+id/button_maps"
+        android:layout_alignLeft="@+id/button_maps"
+        android:layout_alignStart="@+id/button_maps" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Set Marker:"
+        android:id="@+id/marker_txt"
+        android:textColor="#000000"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_marginTop="29dp"
+        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Your Location:"
+        android:id="@+id/loc_txt"
+        android:textColor="#000000"
+        android:layout_marginTop="35dp"
+        android:singleLine="false"
+        android:layout_below="@+id/txt_lng"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="AirDrone"
-        android:id="@+id/textView"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:textAlignment="center"
-        android:textSize="50dp" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/lnglatText"
         android:text="Lng: - Lat: -"
-        android:layout_above="@+id/button_maps"
+        android:id="@+id/lnglatText"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        android:layout_below="@+id/loc_txt"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/btn_dtls"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:textAlignment="center" />
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

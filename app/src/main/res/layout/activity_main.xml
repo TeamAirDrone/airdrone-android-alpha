@@ -30,6 +30,6 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
         android:onClick="goMaps"
-        android:src="@android:drawable/ic_menu_compass" />
+        android:src="@mipmap/ic_place_white" />
 
 </android.support.design.widget.CoordinatorLayout>

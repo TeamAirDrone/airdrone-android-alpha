@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -36,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
     double lnValue;
 
     Button locanzeigen;
-    EditText lonlatText;
+    TextView lonlatText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +58,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
                 .setFastestInterval(1 * 1000); // 1 second, in milliseconds
 
         locanzeigen = (Button) findViewById(R.id.button_maps);
-        lonlatText = (EditText) findViewById(R.id.lnglatText);
+        lonlatText = (TextView) findViewById(R.id.lnglatText);
         setSupportActionBar(toolbar);
 
         locanzeigen.setOnClickListener(new View.OnClickListener() {
@@ -183,8 +184,10 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
         Intent intent = new Intent(this, MapsActivity.class);
         double iLat = laValue;
         double iLng = lnValue;
-        Log.i("LatLng","Lat: "+ laValue+" Lng: "+lnValue);
         Bundle b = new Bundle();
+
+        Log.i("LatLng","Lat: "+ laValue+" Lng: "+lnValue);
+
         b.putDouble("lat", iLat);
         b.putDouble("lng", iLng);
         intent.putExtras(b);

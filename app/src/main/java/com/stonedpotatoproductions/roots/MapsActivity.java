@@ -49,8 +49,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private GoogleMap mMap;
     private UiSettings mUiSettings;
     private int totalMarkers = 1;
-    double latValue = 20.0;
-    double lngValue = 20.0;
+    double latValue;
+    double lngValue;
 
     private GoogleApiClient mGoogleApiClient;
     private LocationRequest mLocationRequest;
@@ -141,14 +141,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     public void addMarker(View view){
         totalMarkers = totalMarkers + 1;
-
         LatLng center = mMap.getCameraPosition().target;
         String cords = center.toString();
+        Marker marker = mMap.addMarker(new MarkerOptions().position(center).draggable(true).title("Marker Nr. " + totalMarkers).snippet("Position: " + cords));
         CameraUpdate myLocation = CameraUpdateFactory.newLatLngZoom(center, 15);
+
         showToast();
         mMap.animateCamera(myLocation);
-
-        Marker marker = mMap.addMarker(new MarkerOptions().position(center).draggable(true).title("Marker Nr. " + totalMarkers).snippet("Position: "+ cords));
         marker.showInfoWindow();
 
     }
@@ -159,6 +158,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         String cords = latLng.toString();
         Marker marker = mMap.addMarker(new MarkerOptions().position(latLng).draggable(true).title("Marker Nr. " + totalMarkers).snippet("Position: " + cords));
         CameraUpdate myLocation = CameraUpdateFactory.newLatLngZoom(latLng, 15);
+
         showToast();
         mMap.animateCamera(myLocation);
         marker.showInfoWindow();
@@ -175,8 +175,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Context context = getApplicationContext();
         CharSequence text = "You added a marker!";
         int duration = Toast.LENGTH_LONG;
-
         Toast toast = Toast.makeText(context, text, duration);
+
         toast.show();
     }
 
